@@ -23,3 +23,8 @@ Praticar com APIs públicos, interpretar respostas JSON e trabalhar com bibliote
 ## Status do projeto
 
 Em andamento - Estudos e testes sendo adicionados progressivamente.
+
+### Créditos
+
+Este projeto foi desenvolvido com base no curso "100 Days of Code - The Complete Python Pro Bootcamp" da Angela Yu (Udemy).
+
