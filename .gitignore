@@ -1,0 +1,7 @@
+.idea/
+*.iml
+
+.venv/
+
+*.DS_Store
+Thumbs.db
