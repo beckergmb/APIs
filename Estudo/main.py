@@ -1,13 +1,23 @@
 import requests  # Requisições HTTP
+import smtplib  # Biblioteca responsável para enviar o e-mail (Simple Mail Transfer Protocol)
+import time
+import os
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 
 MINHA_LAT = -27.641399
 MINHA_LONG = -52.270401
 
+#Biblioteca dotenv para esconder endereço de e-mail e senha.
+load_dotenv()
+MEU_EMAIL = os.getenv('EMAIL_REMETENTE')
+MINHA_SENHA = os.getenv('SENHA_DO_EMAIL')
+
 
 # Verifica se a estação espacial está acima da localização informada
 def iss_acima():
-    resposta_iss = requests.get(url='http://api.open-notify.org/iss-now.json')  # Busca a url do api da iss para retornar a sua posição atual
+    resposta_iss = requests.get(
+        url='http://api.open-notify.org/iss-now.json')  # Busca a url do api da iss para retornar a sua posição atual
     resposta_iss.raise_for_status()
     dado_iss = resposta_iss.json()  # Converte o retorno JSON para um dicionário Python
     try:
@@ -51,6 +61,22 @@ def esta_noite():
         return True
     return False
 
-# TODO: USAR ALGUM SISTEMA PARA ENVIAR O E-MAIL COM O AVISO
-if iss_acima() and esta_noite():
-    pass
+
+# Validação para mandar o e-mail caso a ISS esteja próximo à localização inserida.
+while True:
+    time.sleep(60)
+    if iss_acima() and esta_noite():
+        conexao = smtplib.SMTP('smtp.gmail.com', 587)
+        conexao.starttls()
+        conexao.login(MEU_EMAIL, MINHA_SENHA)
+        mensagem_enviada = (
+            "Subject: ISS passando acima de você!\n\n"
+            "A estação espacial internacional ISS está passando próximo à sua localização!\n"
+            "Dê uma olhada no céu 👀🚀\n\n"
+            "— Este aviso foi enviado automaticamente por um script Python programado por Gabriel Becker."
+        )
+        conexao.sendmail(
+            from_addr=MEU_EMAIL,
+            to_addrs=MEU_EMAIL,
+            msg=mensagem_enviada
+        )
