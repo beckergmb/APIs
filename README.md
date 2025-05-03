@@ -1,55 +1,47 @@
 # Estudos de APIs com Python
 
-Este repositório serve para documentar os meus estudos e testes com consumo de APIs utilizando a linguagem Python.
+[![Python Version](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-Praticar com APIs públicos, interpretar respostas JSON e trabalhar com bibliotecas como o `requests`.
+Este repositório documenta os meus estudos e testes com o consumo de APIs utilizando a linguagem Python.
+
+## Objetivo
+Praticar e desenvolver habilidades em:
+- Consumo de APIs públicas
+- Interpretação de dados JSON
+- Requisições HTTP com `requests`
+- Manipulação de variáveis de ambiente
+- Organização de projetos e boas práticas
+
+## Pré-requisitos
+- Python 3.10 ou superior
+- pip (gerenciador de pacotes Python)
 
 ## Como rodar os códigos
 
-1. Clone este repositório:
-    ```bash
-    git clone https://github.com/beckergmb/APIs.git
-    ```
+### 1. Clone este repositório:
+```bash
+  git clone https://github.com/beckergmb/APIs.git
+```
 
-2. Instale as dependências:
-    ```bash
-    pip install -r requirements.txt
-    ```
+### 2. Instale as dependências necessárias:
+```bash
+  pip install -r requirements.txt
+```
 
-3. Configure as variáveis de ambiente:
-   Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
-   ```
-    EMAIL_REMETENTE=seu_email
-    SENHA_DO_EMAIL=sua_senha
-    ```
-   > ⚠️ Atenção: se for usar Gmail, essa senha não deve ser a senha normal, mas sim uma senha de aplicativo gerada nas configurações
-da sua conta Google com verificação em duas etapas ativadas.
-4. Execute o código principal:
-    ```bash
-    python Estudo/exercicio_01/main.py
-    ```
-   
-## Dependências utilizadas
+### 3. Acesse o diretório do projeto desejado e siga as instruções específicas no `README.md` localizado na pasta correspondente.
 
-- requests
-- pillow
-- python-dotenv
+## Observações
+- Os dados sensíveis (como tokens, e-mail e senha de app) estão protegidos via `.env` siga as instruções específicas em cada pasta.
 
-## Status do projeto
+## Projetos concluídos
+- [Projeto 01 - Alerta ISS por e-mail](Estudo/projeto_01/README.md)
 
-Em andamento - Estudos e testes sendo adicionados progressivamente.
+  Monitoramento da Estação Espacial Internacional com verificação de localização, horário e envio automático de e-mail.
 
-### Projetos concluídos:
-- **Exercício 01 – Alerta ISS por e-mail:**  
-   Monitoramento da Estação Espacial Internacional (ISS) com verificação de localização geográfica e condições noturnas, 
-   envio automático de e-mail utilizando `smtplib`.  
-   Algumas partes foram reorganizadas e outras funcionalidades implementadas, além do que foi apresentado originalmente 
-   no curso, como o ajuste do fuso-horário para o Brasil, e a utilização da biblioteca `dotenv` para proteger informações
-   sensíveis.
+## Projetos em andamento
+- [Projeto 02 - Rastreador de hábitos](Estudo/projeto_02/README.md)
 
-  
-
-### Créditos
-
-Este projeto foi desenvolvido com base no curso "100 Days of Code - The Complete Python Pro Bootcamp" da Angela Yu (Udemy).
-
+## Créditos
+Projetos realizados com base no curso:  
+**"100 Days of Code – The Complete Python Pro Bootcamp"** de Angela Yu (Udemy)
