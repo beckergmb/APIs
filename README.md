@@ -29,18 +29,28 @@ Praticar e desenvolver habilidades em:
   pip install -r requirements.txt
 ```
 
-### 3. Acesse o diretório do projeto desejado e siga as instruções específicas no `README.md` localizado na pasta correspondente.
+### 3. Acesso: 
+  Vá ao diretório do projeto desejado e siga as instruções específicas no `README.md` localizado na pasta correspondente.
 
 ## Observações
-- Os dados sensíveis (como tokens, e-mail e senha de app) estão protegidos via `.env` siga as instruções específicas em cada pasta.
+- Os dados sensíveis (como tokens, e-mail e senha de app) estão protegidos via `.env` siga as instruções específicas em 
+  cada pasta.
 
-## Projetos concluídos
+## Projetos de Estudo
 - [Projeto 01 - Alerta ISS por e-mail](Estudo/projeto_01/README.md)
 
   Monitoramento da Estação Espacial Internacional com verificação de localização, horário e envio automático de e-mail.
 
-## Projetos em andamento
+
 - [Projeto 02 - Rastreador de hábitos](Estudo/projeto_02/README.md)
+  
+  Criaçao de gráfico visual de hábitos utilizando a API do Pixela.
+
+
+- [Projeto 03 - Quiz com interface gráfica](Estudo/projeto_03/README.md)
+  
+    Quiz interativo com perguntas de uma API pública (Open Trivia DB), utilizando Tkinter e OOP para praticar 
+    integração entre dados externos, lógica e interface gráfica.
 
 ## Créditos
 Projetos realizados com base no curso:  
