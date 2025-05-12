@@ -52,6 +52,12 @@ Praticar e desenvolver habilidades em:
     Quiz interativo com perguntas de uma API pública (Open Trivia DB), utilizando Tkinter e OOP para praticar 
     integração entre dados externos, lógica e interface gráfica.
 
+
+- [Projeto 04 - Monitor de Variação de Ações](Estudo/projeto_04/README.md)
+  
+    Monitora a variação de preço de uma ação (TSLA34) usando a API Brapi e imprime um alerta no console se a mudança 
+    (positiva ou negativa) exceder 5% em relação ao fechamento anterior. (Implementação inicial - Passo 1).
+
 ## Créditos
 Projetos realizados com base no curso:  
 **"100 Days of Code – The Complete Python Pro Bootcamp"** de Angela Yu (Udemy)
