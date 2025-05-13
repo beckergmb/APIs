@@ -3,43 +3,48 @@ import requests
 from dotenv import load_dotenv
 
 
-## STEP 1:
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-
-def verificar_alteracao(dados):
+def verificar_alteracao(dados, noticias):
     limite_percentual = 5
     valor_fechamento_anterior = float(dados['results'][0]['regularMarketPreviousClose'])
     valor_fechamento_atual = float(dados['results'][0]['regularMarketPrice'])
     percentual_alteracao = ((valor_fechamento_atual - valor_fechamento_anterior) / valor_fechamento_anterior) * 100
     if abs(percentual_alteracao) > limite_percentual:
-        print("Novas notícias da Tesla")
+        artigos = noticias['articles']
+        tres_artigos = artigos[:3]
+        print(tres_artigos)
     else:
         print("Os fechamentos da Tesla estão estabilizados")
 
 
+def verificar_resposta_api(endpoint):
+    try:
+        resposta = requests.get(endpoint)
+        resposta.raise_for_status()
+        data = resposta.json()
+        return data
+    except requests.exceptions.HTTPError as e:
+        print(f"Erro ao acessar {endpoint}: {e}")
+        return None
+
+
 #Dados do endpoint e token do BRAPI.
 load_dotenv()
-TOKEN = os.getenv('BRAPI_TOKEN')
+BRAPI_TOKEN = os.getenv('BRAPI_TOKEN')
+NEWS_TOKEN = os.getenv('NEWS_TOKEN')
 ATIVO = "TSLA34"
-endpoint_brapi = f'https://brapi.dev/api/quote/{ATIVO}?token={TOKEN}'
 
-try:
-    resposta = requests.get(endpoint_brapi)
-    resposta.raise_for_status()
-    data = resposta.json()
-    verificar_alteracao(data)
-except requests.exceptions.HTTPError as e:
-    print(f"Erro: {e}")
+endpoint_news = f'https://newsapi.org/v2/everything?q=Tesla&language=pt&apiKey={NEWS_TOKEN}'
+resposta_news = verificar_resposta_api(endpoint_news)
 
-
-## STEP 2: Use https://newsapi.org
-# Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+endpoint_brapi = f'https://brapi.dev/api/quote/{ATIVO}?token={BRAPI_TOKEN}'
+resposta_brapi = verificar_resposta_api(endpoint_brapi)
+verificar_alteracao(resposta_brapi, resposta_news)
 
 ## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
-
+# Send a separate message with the percentage change and each article's title and description to your phone number.
 
 #Optional: Format the SMS message like this: 
+
 """
 TSLA: 🔺2%
 Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
