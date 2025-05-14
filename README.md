@@ -55,8 +55,8 @@ Praticar e desenvolver habilidades em:
 
 - [Projeto 04 - Monitor de Variação de Ações](Estudo/projeto_04/README.md)
   
-    Monitora a variação de preço de uma ação (TSLA34) usando a API Brapi e imprime um alerta no console se a mudança 
-    (positiva ou negativa) exceder 5% em relação ao fechamento anterior. (Implementação inicial - Passo 1).
+    Script completo que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a 
+- notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
 
 ## Créditos
 Projetos realizados com base no curso:  
