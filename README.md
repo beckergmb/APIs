@@ -56,7 +56,13 @@ Praticar e desenvolver habilidades em:
 - [Projeto 04 - Monitor de Variação de Ações](Estudo/projeto_04/README.md)
   
     Script completo que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a 
-- notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
+notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
+
+
+- [Projeto 05 - Monitor de Variação de Ações](Estudo/projeto_05/README.md)
+  
+  Script Python automatiza a busca por passagens aéreas mais baratas para destinos personalizados definidos em uma 
+planilha do Google Sheets. Utiliza a API da Amadeus para busca de voos e envia alertas via SMS usando a Twilio.
 
 ## Créditos
 Projetos realizados com base no curso:  
