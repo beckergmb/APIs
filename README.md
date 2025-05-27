@@ -67,7 +67,6 @@ planilha do Google Sheets. Utiliza a API da Amadeus para busca de voos e envia a
 =======
     Script completo que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a
     notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
->>>>>>> 4ea57c6950f38690a333745d3c43f4b1e53fdee8
 
 ## Créditos
 Projetos realizados com base no curso:  
