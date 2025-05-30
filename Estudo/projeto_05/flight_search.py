@@ -29,9 +29,11 @@ class ProcurarVoos:
         self.token = dado['access_token']
         return self.token
 
-    def buscar_voos(self, origem, destino, data_inicio_busca, data_fim_busca, dias_estadia=7):
+    def buscar_voos(self, origem, destino, data_inicio_busca, data_fim_busca, dias_estadia=7, voo_direto=True):
         todas_ofertas_encontradas = []
         data_busca_inicial = data_inicio_busca  # Use o objeto diretamente
+
+        non_stop_param = 'true' if voo_direto else 'false'
 
         while data_busca_inicial <= data_fim_busca:  # Use o objeto diretamente
             data_de_retorno_atual = data_busca_inicial + datetime.timedelta(days=dias_estadia)
@@ -54,8 +56,8 @@ class ProcurarVoos:
                 'departureDate': data_de_partida_str,
                 'returnDate': data_de_retorno_str,
                 'adults': 1,
-                'nonStop': 'true',
-                'max': 5,  # Limita o número de resultados por requisição para evitar sobrecarga
+                'nonStop': non_stop_param,
+                'max': 50,  # Limita o número de resultados por requisição para evitar sobrecarga
                 'currencyCode': 'BRL'
             }
 
@@ -97,12 +99,15 @@ class ProcurarVoos:
         aeroporto_destino = voo_mais_barato_json['itineraries'][0]['segments'][-1]['arrival']['iataCode']
         data_ida = voo_mais_barato_json['itineraries'][0]['segments'][0]['departure']['at'][:10]
         data_volta = voo_mais_barato_json['itineraries'][-1]['segments'][-1]['arrival']['at'][:10]
+        numero_tot_segmentos = len(voo_mais_barato_json['itineraries'][0]['segments'])
+        escala = numero_tot_segmentos - 1
 
         voo_resultante = FlightData(
             preco=preco,
             aeroporto_origem=aeroporto_origem,
             aeroporto_destino=aeroporto_destino,
             data_ida=data_ida,
-            data_volta=data_volta
+            data_volta=data_volta,
+            escala=escala,
         )
         return voo_resultante

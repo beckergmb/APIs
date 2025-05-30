@@ -39,12 +39,12 @@ Praticar e desenvolver habilidades em:
 ## Projetos de Estudo
 - [Projeto 01 - Alerta ISS por e-mail](Estudo/projeto_01/README.md)
 
-  Monitoramento da Estação Espacial Internacional com verificação de localização, horário e envio automático de e-mail.
+    Monitoramento da Estação Espacial Internacional com verificação de localização, horário e envio automático de e-mail.
 
 
 - [Projeto 02 - Rastreador de hábitos](Estudo/projeto_02/README.md)
   
-  Criaçao de gráfico visual de hábitos utilizando a API do Pixela.
+    Criaçao de gráfico visual de hábitos utilizando a API do Pixela.
 
 
 - [Projeto 03 - Quiz com interface gráfica](Estudo/projeto_03/README.md)
@@ -54,20 +54,16 @@ Praticar e desenvolver habilidades em:
 
 
 - [Projeto 04 - Monitor de Variação de Ações](Estudo/projeto_04/README.md)
-  
-<<<<<<< HEAD
-    Script completo que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a 
-notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
 
-
-- [Projeto 05 - Monitor de Variação de Ações](Estudo/projeto_05/README.md)
-  
-  Script Python automatiza a busca por passagens aéreas mais baratas para destinos personalizados definidos em uma 
-planilha do Google Sheets. Utiliza a API da Amadeus para busca de voos e envia alertas via SMS usando a Twilio.
-=======
-    Script completo que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a
+    Script que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a 
     notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
->>>>>>> 4ea57c6950f38690a333745d3c43f4b1e53fdee8
+
+
+- [Projeto 05 - Alerta de Passagens Aéreas com Google Sheets, SMS e E-mail](Estudo/projeto_05/README.md)
+  
+    Script Python automatiza a busca por passagens aéreas mais baratas para destinos personalizados definidos em uma 
+    planilha do Google Sheets. Utiliza a API da Amadeus para busca de voos e envia alertas via SMS usando a Twilio e 
+    E-mail através da biblioteca stmplib.
 
 ## Créditos
 Projetos realizados com base no curso:  

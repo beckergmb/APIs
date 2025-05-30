@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv
+
+
 class Dadoscidades:
     def __init__(self, cidade, cod_iata, menor_preco):
         self.cidade = cidade
@@ -9,11 +13,14 @@ class Dadoscidades:
 
 
 class GerenciadorDados:
-    endpoint = 'https://api.sheety.co/fb2153650af24b6f0d4d35bff1436935/preçoDeViagens/prices'
+    def __init__(self):
+        load_dotenv()
+        self.endpoint_precos = os.getenv('ENDPOINT_PRECOS')
+        self.endpoint_usuarios = os.getenv('ENDPOINT_USUARIOS')
 
     def buscar_dados_planilha(self):
         import requests
-        resposta = requests.get(url=self.endpoint)
+        resposta = requests.get(url=self.endpoint_precos)
         data = resposta.json()
         valores = []
         for v in data['prices']:
@@ -23,5 +30,13 @@ class GerenciadorDados:
                 menor_preco=v['menorPreco']
             )
             valores.append(dados_cidade)
-
         return valores
+
+    def buscar_emails_usuarios(self):
+        import requests 
+        resposta = requests.get(url=self.endpoint_usuarios)
+        data = resposta.json()
+        emails = []
+        for u in data['users']:
+            emails.append(u['eMail'])
+        return emails

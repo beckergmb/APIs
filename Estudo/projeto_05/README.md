@@ -1,4 +1,4 @@
-# Projeto 05 - Alerta de Passagens Aéreas com Google Sheets e SMS
+# Projeto 05 - Alerta de Passagens Aéreas com Google Sheets, SMS e E-mail
 Este script Python automatiza a busca por passagens aéreas mais baratas para destinos personalizados definidos em uma 
 planilha do Google Sheets. Utiliza a API da Amadeus para busca de voos e envia alertas via SMS usando a Twilio. Os dados
 de destino são conectados à planilha por meio do Google Sheety.
@@ -7,6 +7,7 @@ de destino são conectados à planilha por meio do Google Sheety.
 1. **Leitura de Dados via Sheety:**
    * Acessa uma planilha pública hospedada com Sheety.
    * Extrai os dados das cidades, códigos IATA e preços de referência.
+   * Acessa uma aba de usuários para coletar os e-mails cadastrados.
 
 2. **Busca de Voos (Amadeus API):**
    * Utiliza a API da Amadeus com autenticação via `client_id` e `client_secret.`
@@ -21,12 +22,18 @@ de destino são conectados à planilha por meio do Google Sheety.
     * Envia uma mensagem SMS formatada para o número pessoal configurado.
     * Inclui cidade de destino, preço, data de ida e data de volta.
 
+5. **Envio de Notificações por E-mail (SMTP):**
+   * Envia e-mails para todos os usuários cadastrados na aba "users" da planilha do Sheety.
+   * Cada e-mail contém as informações formatadas do voo encontrado.
+   * Utiliza servidor SMTP configurado (.env) com autenticação via senha de app.
+
 ## Tecnologias utilizadas
 
 * Python 3
 * Biblioteca requests (para chamadas HTTP às APIs Amadeus e Sheety)
 * Biblioteca python-dotenv (para gerenciar variáveis de ambiente)
 * Biblioteca twilio (para envio de SMS)
+* Biblioteca smtplib e email.message (para envio de e-mails)
 * API do [Amadeus](https://developers.amadeus.com/)
 * API do [Google Sheety](https://sheety.co/)
 * API da [Twilio](https://www.twilio.com/)
@@ -42,12 +49,18 @@ de destino são conectados à planilha por meio do Google Sheety.
 
     Crie (ou edite) o arquivo chamado .env com as seguintes variáveis:
     ```
-    AMADEUS_API_KEY=SEU_CLIENT_ID_DA_AMADEUS
-    AMADEUS_SECRET=SEU_CLIENT_SECRET_DA_AMADEUS
-    TWILIO_SID=SEU_TWILIO_ACCOUNT_SID
-    TWILIO_TOKEN=SEU_TWILIO_AUTH_TOKEN
-    TELEFONE_ENVIO=SEU_NUMERO_TWILIO_E164   # Ex: +14155552671
-    MEU_TELEFONE=SEU_NUMERO_PESSOAL_E164    # Ex: +5511999999999
+   AMADEUS_API_KEY=SEU_CLIENT_ID_DA_AMADEUS
+   AMADEUS_SECRET=SEU_CLIENT_SECRET_DA_AMADEUS
+   TWILIO_SID=SEU_TWILIO_ACCOUNT_SID
+   TWILIO_TOKEN=SEU_TWILIO_AUTH_TOKEN
+   TELEFONE_ENVIO=SEU_NUMERO_TWILIO_E164     # Ex: +14155552671
+   MEU_TELEFONE=SEU_NUMERO_PESSOAL_E164      # Ex: +5511999999999
+   ENDPOINT_PRECOS=URL_DA_ABA_DE_PRECOS      
+   ENDPOINT_USUARIOS=URL_DA_ABA_DE_USUARIOS  
+   EMAIL_REMETENTE=SEU_EMAIL_REMETENTE       # Ex: seuemail@gmail.com
+   SENHA_DO_EMAIL=SENHA_DO_APP               # Senha de app do Gmail ou similar
+   SMTP_SERVIDOR=smtp.gmail.com              # Ou outro servidor, conforme o e-mail
+   SMTP_PORTA=587
     ```
    Como obter: 
     * `AMADEUS_API_KEY` e `AMADEUS_SECRET`: Crie uma conta gratuita na Amadeus for Developers.
