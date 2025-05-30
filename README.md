@@ -58,12 +58,11 @@ Praticar e desenvolver habilidades em:
     Script que monitora a variação de preço da ação TSLA34 (API Brapi). Se a variação exceder 5%, busca a 
     notícia mais recente (NewsAPI), encurta seu link (TinyURL) e envia um alerta formatado por SMS (Twilio) para o celular do usuário.
 
-
 - [Projeto 05 - Alerta de Passagens Aéreas com Google Sheets, SMS e E-mail](Estudo/projeto_05/README.md)
   
     Script Python automatiza a busca por passagens aéreas mais baratas para destinos personalizados definidos em uma 
     planilha do Google Sheets. Utiliza a API da Amadeus para busca de voos e envia alertas via SMS usando a Twilio e 
-    E-mail através da biblioteca stmplib.
+    E-mail através da biblioteca smtplib.
 
 ## Créditos
 Projetos realizados com base no curso:  
